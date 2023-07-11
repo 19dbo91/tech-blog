@@ -4,7 +4,13 @@ const sequelize = require('../config/connection');
 class BlogPost extends Model {}
 
 BlogPost.init(
-    {},
+    {
+        id:{},
+        title:{},
+        body:{},
+        blogpost_id:{},
+        comment_id:{},
+    },
     {
         sequelize,
         timestamps: false,
