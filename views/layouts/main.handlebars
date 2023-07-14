@@ -1,13 +1,31 @@
-<!-- meta stuff -->
-<!-- header -->
-    <!-- nav bar -->
-        <!-- button home-->
-        <!-- button dashboard -->
-        <!-- (context-sensitive) button {login OR log out} -->
-    <!-- /nav bar -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <button>Home</button>
+        <button>Dashboard</button>
+        {{#if}}
+            <button>Log In</button>
+        {{else}}
+            <button>Log Out</button>
+        {{/if}}
+    </nav>
+    {{#if}}
+        <header></header>
+    {{else}}
+        <header></header>
+    {{/if}}
+    <main>
+        {{{content}}}
+    </main>
+    
+</body>
+</html>
 
-    <!-- title bar -->
-<!--/ header -->
 
 <!-- body -->
 

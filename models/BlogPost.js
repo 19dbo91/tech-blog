@@ -5,18 +5,35 @@ class BlogPost extends Model {}
 
 BlogPost.init(
     {
-        id:{},
-        title:{},
-        body:{},
-        blogpost_id:{},
-        comment_id:{},
+        id:{
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement:true
+        },
+        title:{
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        body:{
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        user_id:{
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'User',
+                key: 'id',
+            },
+        },
     },
     {
         sequelize,
-        timestamps: false,
+        timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'blogpost',
+        modelName: 'BlogPost',
     }
 )
 

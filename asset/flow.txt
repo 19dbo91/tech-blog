@@ -1,0 +1,15 @@
+@land:
+    PG_HOME
+
+
+@anyPg + loggedOUT, click login:
+    GOTO PG_LOGIN
+        -> click login:
+            VALIDATE input
+            SUBMIT input
+            SET loggedIN
+        -> click signup:
+            VALIDATE input
+            SUBMIT input
+            GOTO PG_LOGIN
+@
