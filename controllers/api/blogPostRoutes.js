@@ -8,7 +8,6 @@ router.get('/', async (req, res)=>{
         const blogpostData = await BlogPost.findAll({
             include:{ model: User },
         });
-        //console.log(blogpostData)
         res.status(200).json(blogpostData);
     } catch(err){
         res.status(500).json(err);

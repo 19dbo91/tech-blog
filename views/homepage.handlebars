@@ -1,9 +1,10 @@
+<h2>Tech Blog</h2>
 <main>
     {{#each blogposts as |post|}}
         <div class="post">
             <div class="post-header">
                 <div class="post-title">{{post.title}}</div>
-                <div class="post-meta">Posted by {{post.user}} on {{post.createAt}}</div>
+                <div class="post-meta">Posted by {{post.user.name }} on {{post.date}}</div>
             </div>
             <div class="post-content">
                 <p>{{post.body}}</p>

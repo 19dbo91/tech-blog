@@ -1,9 +1,12 @@
 <nav>
-    <button>Home</button>
-    <button>Dashboard</button>
-    {{#if}}
-    <button>Log In</button>
-    {{else}}
-    <button>Log Out</button>
-    {{/if}}
+    <button id="button-home" >Home</button>
+    <button id="button-dash" >Dashboard</button>
+    <button id="button-log" data-loggedIn="{{loggedIn}}">
+        {{#if loggedIn}}
+            Log Out
+        {{else}}
+            Log In
+        {{/if}}
+    </button>
 </nav>
+<script src="js/navbar.js"></script>
