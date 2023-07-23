@@ -21,4 +21,13 @@ const logButton = document.getElementById('button-log');
 logButton.addEventListener('click', (event) => {
     event.stopPropagation();
     console.log("Clicked Login/Logout");
+    
+    const loggedIn = false;//switch out for sesh id
+    if (loggedIn){ 
+        //destroy key
+        document.location.replace('/');
+    }else{
+        document.location.replace('/login');
+    }
+    
 })

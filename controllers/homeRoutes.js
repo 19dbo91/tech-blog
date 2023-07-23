@@ -34,14 +34,13 @@ router.get('/', async (req, res) =>{
         console.error(err);
         res.status(500).json(`Error 500: Internal server error...\n ${err}`);
     }
-
 });
 
 // Dashboard shows MY titles+date as buttons and a new 
 router.get('/dashboard', async (req, res) =>{
     try{
         //check if logged in 
-        var loggedIn = true;
+        var loggedIn = true;// redirect to login if not
 
         const blogpostData = await BlogPost.findAll({
             where: { id:1 },
@@ -66,5 +65,24 @@ router.get('/dashboard', async (req, res) =>{
 });
 
 // Login shows
+router.get('/login', async (req, res) =>{
+    try{
+        //check if logged in 
+        var loggedIn = false;      
+        var title = "The Tech Blog";
+        if(loggedIn){
+            document.location.replace('/');
+            return;
+        }
+        res.status(200).render('login',{
+            title,
+            loggedIn,
+        });
+    }catch(err){
+        console.error(err);
+        res.status(500).json(`Error 500: Internal server error...\n ${err}`);
+    }
+});
+
 
 module.exports = router;
