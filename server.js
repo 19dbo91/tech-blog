@@ -1,34 +1,32 @@
-
-//#region Dependencies
+//#region Importing dependencies...
 const sql = require('mysql2');
 const express = require('express');
-const db = require('./config/connection.js')
+const sequelize = require('./config/connection');
 const routes = require('./controllers');
 const exphbs = require('express-handlebars');
+const path = require('path');
 //#endregion
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
+//#region Initializing handlebars...
+const hbs = exphbs.create({});
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+//#endregion
 
-
-
-//here
-
-
+//#region Setting up routes...
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
+//#endregion
 
-
-
-
-
-sequelize.sync().then(() => {
+//#region Connecting...
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
+//#endregion

@@ -9,13 +9,15 @@ User.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement:true},
+            autoIncrement:true
+        },
         name:{
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true
+            unique: true,
+            //validate:{}
         },
-        password:{
+        password:{                  //TODO Disallow: whitespace,fwdSlash
             type: DataTypes.STRING,
             allowNull: false,
         }
@@ -25,7 +27,7 @@ User.init(
         timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'User',
+        modelName: 'user',
     }
 )
 

@@ -8,6 +8,8 @@ router.get('/', async (req, res)=>{
         const blogpostData = await BlogPost.findAll({
             include:{model: User}
         });
+        console.log(blogpostData)
+
         res.status(200).json(blogpostData);
     } catch(err){
         res.status(500).json(err);
@@ -44,7 +46,7 @@ router.get('/', async (req, res)=>{
 });
 
 //PUT id
-router.get('/:id', async (req, res)=>{
+router.put('/:id', async (req, res)=>{
     try{
         const blogpostData = await BlogPost.findByPk( req.params.id, {
             include:{model: User},
@@ -60,7 +62,7 @@ router.get('/:id', async (req, res)=>{
 });
 
 //DELETE id
-router.get('/:id', async (req, res)=>{
+router.delete('/:id', async (req, res)=>{
     try{
         const blogpostData = await BlogPost.destroy({
             where:{

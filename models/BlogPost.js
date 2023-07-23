@@ -23,7 +23,7 @@ BlogPost.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'User',
+                model: 'user',
                 key: 'id',
             },
         },
@@ -33,7 +33,7 @@ BlogPost.init(
         timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'BlogPost',
+        modelName: 'blogpost',
     }
 )
 
