@@ -1,4 +1,20 @@
-<h2>My Dashboard</h2>
+<main>
+    {{#each blogposts as |post|}}
+        <div class="button-edit">
+            <div class="post-title">
+                {{post.title}}
+            </div>
+            <div class="post-meta">
+                {{post.date}}
+            </div>
+        </div>
+    {{/each}}
+
+    <button id="button-new"> + New Post </button>
+</main>
+
+
+
 buttons of your posts
 thenedit it
 
