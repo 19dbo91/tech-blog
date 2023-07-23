@@ -28,6 +28,18 @@ User.init(
         freezeTableName: true,
         underscored: true,
         modelName: 'user',
+        defaultScope: {
+            attributes: {
+              exclude: ['password']
+            }
+        },
+        scopes: {
+            withPassword: {
+              attributes: {
+                include: ['password']
+              }
+            }
+          }
     }
 )
 
