@@ -2,7 +2,7 @@ const { BlogPost, User } = require('../models');
 
 const router = require('express').Router();
 
-// Home shows all post as all cards
+// Redirects Home: shows all post as all cards
 router.get('/', async (req, res) =>{
     try{
         const blogpostData = await BlogPost.findAll({
@@ -36,7 +36,7 @@ router.get('/', async (req, res) =>{
     }
 });
 
-// Dashboard shows MY titles+date as buttons and a new 
+// Redirects Dashboard: shows MY titles+date as buttons and a new 
 router.get('/dashboard', async (req, res) =>{
     try{
         //check if logged in 
@@ -64,7 +64,7 @@ router.get('/dashboard', async (req, res) =>{
     }
 });
 
-// Login shows
+// Redirects Login shows
 router.get('/login', async (req, res) =>{
     try{
         //check if logged in 
